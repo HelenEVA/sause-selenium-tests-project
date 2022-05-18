@@ -18,6 +18,7 @@ public class StaticTests {
 
     @BeforeAll
     static void beforeAll() {
+
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
@@ -39,7 +40,7 @@ public class StaticTests {
     }
 
     @Test
-            void popUpMenuTests() {
+    void popUpMenuTests() {
 
         assertThat(driver.findElements(By.id("react-burger-menu-btn")).size(), not(equalTo("0")));
         driver.findElement(By.id("react-burger-menu-btn")).click();
@@ -52,6 +53,7 @@ public class StaticTests {
 
     @Test
     void pageHeaderTests(){
+
         assertThat(driver.findElements(By.cssSelector("header_label")).size(), not(equalTo("0")));
         assertThat(driver.findElements(By.className("header_secondary_container")).size(), not(equalTo("0")));
         assertThat(driver.findElement(By.className("header_secondary_container")).getText(), equalTo("CHECKOUT: YOUR INFORMATION"));
@@ -62,6 +64,7 @@ public class StaticTests {
 
     @Test
     void inputFieldsTests (){
+
         assertThat(driver.findElements(By.cssSelector("checkout_info")).size(), not(equalTo("0")));
         assertThat(driver.findElements(By.cssSelector("checkout_info_wrapper")).size(), not(equalTo("0")));
         assertThat(driver.findElement(By.id("first-name")).getAccessibleName(), equalTo("First Name"));
@@ -75,6 +78,7 @@ public class StaticTests {
 
     @Test
     void lowerBondTests(){
+
         assertThat(driver.findElements(By.name("cancel")).size(), not(equalTo("0")));
         assertThat(driver.findElement(By.name("cancel")).getAccessibleName(), equalTo("Go back CANCEL"));
         assertThat(driver.findElements(By.name("continue")).size(), not(equalTo("0")));
@@ -83,6 +87,7 @@ public class StaticTests {
 
     @Test
     void halfPageTests(){
+
         assertThat(driver.findElements(By.className("footer")).size(), not(equalTo("0")));
         assertThat(driver.findElements(By.className("social_twitter")).size(), not(equalTo("0")));
         assertThat(driver.findElements(By.className("social_facebook")).size(), not(equalTo("0")));

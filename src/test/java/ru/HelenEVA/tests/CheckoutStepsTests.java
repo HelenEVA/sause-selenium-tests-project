@@ -18,6 +18,7 @@ public class CheckoutStepsTests {
 
     @BeforeAll
     static void beforeAll(){
+        
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
