@@ -1,5 +1,6 @@
 package ru.HelenEVA.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,17 +31,20 @@ public class OneStepPage extends BaseAuthorizedPage {
         return this;
     }
 
+    @Step ("Ввести имени пользователя")
     public OneStepPage enterFirstName(String fName){
 
         firstName.sendKeys(fName);
         return this;
     }
 
+    @Step ("Ввести фамилии пользователя")
     public OneStepPage enterLastName(String lName){
         lastName.sendKeys(lName);
         return this;
     }
 
+    @Step ("Ввести почтового индекса пользователя")
     public OneStepPage enterPostalCode(String code){
         postalCode.sendKeys(code);
     return this;

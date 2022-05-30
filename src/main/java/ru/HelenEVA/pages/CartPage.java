@@ -1,5 +1,6 @@
 package ru.HelenEVA.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -37,6 +38,9 @@ public class CartPage extends BaseAuthorizedPage {
         return this;
     }
 
+
+
+    @Step ("Нажать кнопку 'checkout'")
     public OneStepPage clickToCheckoutButton() {
         checkoutButton.click();
         return new OneStepPage(driver);

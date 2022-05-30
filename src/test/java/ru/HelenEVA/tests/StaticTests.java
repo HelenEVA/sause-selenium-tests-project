@@ -1,22 +1,26 @@
 package ru.HelenEVA.tests;
 
-import org.junit.jupiter.api.BeforeAll;
+
+import io.qameta.allure.Description;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.Test;
 
-import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.HelenEVA.pages.LoginPage;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.not;
-import static org.hamcrest.MatcherAssert.assertThat;
 
+@Epic("Статические тесты")
+@Feature("Тесты на наличие элементов")
+@Story("Тесты на наличие элементов")
 public class StaticTests extends BaseTest {
 
     final static Logger logger = LoggerFactory.getLogger(StaticTests.class);
 
     @Test
+    @Description("Проверка наличия элементов на основной странице оформления заказа")
     void ElementsTests(){
 
 
