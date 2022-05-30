@@ -3,3 +3,4 @@ target
 *.iml
 *.allure
 *allure-results
+.allure/allure-2.14.0
