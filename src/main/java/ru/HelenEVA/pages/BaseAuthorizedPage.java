@@ -1,5 +1,6 @@
 package ru.HelenEVA.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,15 +13,20 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class BaseAuthorizedPage extends BasePage {
 
     @FindBy(id = "react-burger-cross-btn")
-    private WebElement reactMenuClose;
+    WebElement reactMenuClose;
     @FindBy(id = "react-burger-menu-btn")
-    private WebElement reactMenu;
+    WebElement reactMenu;
+    @FindBy(id = "reset_sidebar_link")
+    WebElement resetButton;
+    @FindBy(id = "logout_sidebar_link")
+    WebElement logoutButton;
 
     public BaseAuthorizedPage(WebDriver driver) {
         super(driver);
     }
 
 
+    @Step ("Нажать кнопку всплывающего меню")
     public BaseAuthorizedPage clickReactMenuButton(){
         reactMenu.click();
         return this;
@@ -74,11 +80,22 @@ public class BaseAuthorizedPage extends BasePage {
         return this;
     }
 
+
+
+    @Step ("Нажать на выход из высплывающего меню")
     public BaseAuthorizedPage clickReactMenuCloseButton(){
 
         reactMenuClose.click();
         return this;
     }
 
+
+    @Step ("Обнуление корзины и разлогин")
+    public LoginPage zeroing() {
+        reactMenu.click();
+        resetButton.click();
+        logoutButton.click();
+        return new LoginPage(driver);
+    }
 
 }

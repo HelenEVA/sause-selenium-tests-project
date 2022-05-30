@@ -1,5 +1,6 @@
 package ru.HelenEVA.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -29,6 +30,7 @@ public class OrderPage extends BaseAuthorizedPage {
         return this;
     }
 
+    @Step ("Нажать кнопку ''возврат на домашнюю страницу")
     public InventoryPage clickToBackHomeButton(){
         driver.findElement(By.id("back-to-products")).click();
         return new InventoryPage(driver);

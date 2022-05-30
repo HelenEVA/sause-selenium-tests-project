@@ -1,11 +1,13 @@
 package ru.HelenEVA.tests;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.HelenEVA.pages.LoginPage;
 
-
+@Feature("Тесты на авторизацию в системе и шаги выбора товара")
 public class CheckoutStepsTests extends BaseTest {
 
 
@@ -13,6 +15,7 @@ public class CheckoutStepsTests extends BaseTest {
 
 
     @Test
+    @Description("Тест на авторизацию обычного пользователя")
     void authorisationPositiveTest() {
 
         logger.info("Authorization");
@@ -21,11 +24,13 @@ public class CheckoutStepsTests extends BaseTest {
                 .enterPassword(password)
                 .clickLoginButton()
                 .checkInventoryPageURL()
-                .checkCartOnThePage();
+                .checkCartOnThePage()
+                .zeroing();
 
     }
 
     @Test
+    @Description("Тест шаги выбора товара обычного пользователя")
     void checkoutStepsPositiveTest()  {
 
         logger.info("Start checkout steps positive tests");
@@ -62,7 +67,8 @@ public class CheckoutStepsTests extends BaseTest {
                 .checkTitleIsCorrect()
                 //возврат на домшнюю страницу
                 .clickToBackHomeButton()
-                .checkInventoryPageURL();
+                .checkInventoryPageURL()
+                .zeroing();
         logger.info("Checkout steps positive tests end");
     }
 }
